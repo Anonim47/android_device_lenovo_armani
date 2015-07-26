@@ -33,6 +33,7 @@ TARGET_SPECIFIC_HEADER_PATH := device/lenovo/armani/include
 COMMON_GLOBAL_CFLAGS += -DQCOM_BSP_ABI_HACK -DUSE_MDP3
 COMMON_GLOBAL_CFLAGS += -DLPA_DEFAULT_BUFFER_SIZE=480
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a5 -mfpu=neon-vfpv4 -mfloat-abi=softfp
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 
 TARGET_NO_BOOTLOADER := true
@@ -65,7 +66,7 @@ BOARD_USES_ADRENO_200 := true
 #	$(LOCAL_PATH)/zImage:kernel
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/lenovo/armani
-TARGET_KERNEL_CONFIG := armani_defconfig
+TARGET_KERNEL_CONFIG := cyanogen_armani_defconfig
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -124,7 +125,7 @@ TARGET_ARCH_LOWMEM := false
 BOARD_HARDWARE_CLASS := device/lenovo/armani/cmhw/
 
 
-# Display                                                                                 │··························································
+# Display                                                                              
 USE_OPENGL_RENDERER := true
 TARGET_QCOM_DISPLAY_VARIANT := legacy        
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true                                           
@@ -182,6 +183,7 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 TARGET_PROVIDES_LIBLIGHT := true
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
+
 # Camera
 COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB -DNEEDS_VECTORIMPL_SYMBOLS
 USE_DEVICE_SPECIFIC_CAMERA := true

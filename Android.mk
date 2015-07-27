@@ -17,13 +17,7 @@
 # including x86, the emulator, and the SDK.  Modules must be uniquely
 # named (liblights.tuna), and must build everywhere, or limit themselves
 # to only building on ARM if they include assembly. Individual makefiles
-# are responsible for having their own logic, for fine-grained control.
-
-# FACK YEAH!!
-$(shell mkdir -p $OUT/obj/lib)
-$(shell mkdir -p $OUT/obj/bin)
-$(shell cp -R ~/opt/bin $OUT/obj/bin)
-$(shell cp -R ~/opt/lib $OUT/obj/lib)
+# are responsible for having their own logic, for fine-grained control
 
 ifeq ($(TARGET_DEVICE),armani)
 

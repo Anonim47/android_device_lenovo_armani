@@ -34,8 +34,9 @@ TARGET_GLOBAL_CFLAGS += -mtune=cortex-a5 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 
-TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
+# Define the Bootloader name
+TARGET_BOOTLOADER_BOARD_NAME := armani_row
 # Try to use ASHMEM if possible (when non-MDP composition is used)
 TARGET_GRALLOC_USES_ASHMEM := true
 

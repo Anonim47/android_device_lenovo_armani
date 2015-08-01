@@ -18,6 +18,9 @@ $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+# The gps config appropriate for this device
+$(call inherit-product, device/common/gps/gps_us_supl.mk)
+
 LOCAL_PATH := device/lenovo/armani
 
 DEVICE_PACKAGE_OVERLAYS := device/lenovo/armani/overlay
@@ -266,9 +269,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=128m \
     dalvik.vm.heapsize=256m \
-    ro.config.low_ram=true \
-    ro.ksm.default=1 \
-    ro.config.low_ram=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
    media.stagefright.enable-player=true \
@@ -302,7 +302,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=60
-
 
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.fm.analogpath.supported=false \

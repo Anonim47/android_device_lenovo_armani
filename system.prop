@@ -1,5 +1,7 @@
 # system.prop for armani
 # by Anonim47
+
+# RIL
 rild.libpath=/system/lib/libril-qc-qmi-1.so
 persist.rild.nitz_plmn=
 persist.rild.nitz_long_ons_0=
@@ -23,4 +25,24 @@ ro.telephony.call_ring.multiple=false
 ro.use_data_netmgrd=true 
 persist.data_netmgrd_nint=16 
 persist.radio.apm_sim_not_pwdn=1  
+
+# Memory
+ro.ksm.default=1
+ro.config.low_ram=true
+
+# Qualcomm
+com.qc.hardware=true
+ro.vendor.extension_library=/system/lib/libqc-opt.so
+
+# FM Radio
+ro.fm.analogpath.supported=true
+ro.fm.transmitter=false
+ro.fm.mulinst.recording.support=false
+
+# Display
+ro.max.fling_velocity=4000
+ro.opengles.version=131072
+ro.sf.lcd_density=240
+debug.gr.numframebuffers=3
+ro.bq.gpu_to_cpu_unsupported=1
 

@@ -27,12 +27,7 @@ DEVICE_PACKAGE_OVERLAYS := device/lenovo/armani/overlay
 
 PRODUCT_LOCALES := en_US
 PRODUCT_LOCALES += hdpi
-
-# This device is hdpi.  However the platform doesn't
-# currently contain all of the bitmaps at mdpi density so
-# we do this little trick to fall back to the hdpi version
-# if the hdpi doesn't exist.
-PRODUCT_AAPT_CONFIG := normal mdpi hdpi xhdpi
+PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 PRODUCT_COPY_FILES += \

@@ -268,7 +268,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
   
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=128m \
-    dalvik.vm.heapsize=256m \
+    dalvik.vm.heapsize=256m 
 
 PRODUCT_PROPERTY_OVERRIDES += \
    media.stagefright.enable-player=true \

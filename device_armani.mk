@@ -310,9 +310,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
   persist.radio.apm_sim_not_pwdn=1 \
   ro.sf.hwrotation=0
 
+# Recovery Options
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.cwm.forbid_format=/persist,/boot,/sdcard \
+    ro.cwm.forbid_mount=/boot
 
 $(call inherit-product, vendor/lenovo/armani_row/armani_row-vendor.mk)
-#$(call inherit-product, vendor/lenovo/armani/armani-vendor-blobs.mk)
 
 PRODUCT_MANUFACTURER := qcom
 PRODUCT_BRAND := LENOVO

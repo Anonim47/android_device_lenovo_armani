@@ -9,3 +9,11 @@ Battery : 2000mAh
 Screen : 4.5" 480x854 px
 ------
 
+How to building KitKat ROM for Lenovo A706?
+- Initialize your build Environmet
+- After you initialize your build directory, Copy the local_manifest.xml into the .repo folder
+- Run the repo sync
+- Run EnvSetup script
+- Lunch device
+- "mka bacon" cook the bacon 
+Enjoy

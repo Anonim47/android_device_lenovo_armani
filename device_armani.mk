@@ -55,7 +55,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/thermald.conf:system/etc/thermald.conf \
     $(LOCAL_PATH)/config/qosmgr_rules.xml:system/etc/qosmgr_rules.xml \
     $(LOCAL_PATH)/config/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
-    $(LOCAL_PATH)/config/gps.conf:system/etc/gps.conf
+    $(LOCAL_PATH)/config/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/config/init.qcom.fm.sh:system/etc/init.qcom.fm.sh
 
 # Media
 PRODUCT_COPY_FILES += \

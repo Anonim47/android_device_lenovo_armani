@@ -30,7 +30,7 @@ TARGET_HAS_QACT := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lenovo/armani/bluetooth
 
 # Kernel
-TARGET_KERNEL_CONFIG := cyanogenmod_armani_defconfig
+TARGET_KERNEL_CONFIG := cyanogen_armani_defconfig
 
 # These currently have to go to the ramdisk for wlan_detect to pick them up.
 # Hopefully they can join their friends at $(KERNEL_MODULES_OUT) soon. :(

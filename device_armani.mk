@@ -30,7 +30,7 @@ PRODUCT_COPY_FILES += \
     device/lenovo/armani/configs/thermald.conf:system/etc/thermald.conf
 
 PRODUCT_COPY_FILES += \
-    device/lenovo/armanikeylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
+    device/lenovo/armani/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
     device/lenovo/armani/keylayout/atmel_mxt_ts.kl:system/usr/keylayout/atmel_mxt_ts.kl \
     device/lenovo/armani/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/lenovo/armani/keylayout/ft5x06_ts.kl:system/usr/keylayout/ft5x06_ts.kl \

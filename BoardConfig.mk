@@ -30,7 +30,7 @@ TARGET_HAS_QACT := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lenovo/armani/bluetooth
 
 # Kernel
-TARGET_KERNEL_CONFIG := cyanogenmod_armani_defconfig
+TARGET_KERNEL_CONFIG := armani_defconfig
 
 # Recovery
 BOARD_CUSTOM_GRAPHICS := ../../../device/lenovo/armani/recovery/graphics.c

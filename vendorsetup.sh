@@ -1,2 +1,2 @@
-sh device/lenovo/armani/patches/apply.sh
+sh device/lenovo/armani/patch/apply.sh
 

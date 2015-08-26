@@ -20,22 +20,22 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 $(call inherit-product, vendor/cm/config/common.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/nokia/normandy/full_normandy.mk)
+$(call inherit-product, device/lenovo/armani/full_armani.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 480
-TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_HEIGHT := 854
 
 # Discard inherited values and use our own instead.
-PRODUCT_NAME := cm_normandy
-PRODUCT_DEVICE := normandy
-PRODUCT_BRAND := NOKIA
-PRODUCT_MANUFACTURER := NOKIA
-PRODUCT_MODEL := NOKIAX
+PRODUCT_NAME := cm_armani
+PRODUCT_DEVICE := armani
+PRODUCT_BRAND := LENOVO
+PRODUCT_MANUFACTURER := qcom
+PRODUCT_MODEL := A706_ROW
 
 # Set build fingerprint / ID / Product Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_BRAND=Nokia \
-    PRODUCT_NAME=Nokia_X \
-    BUILD_PRODUCT=RM-980
+    PRODUCT_BRAND=LENOVO \
+    PRODUCT_NAME=armani \
+    BUILD_PRODUCT=A706_ROW
 #    BUILD_FINGERPRINT=qcom/msm8625/msm8625:4.1.2/JZO54K/eng.ZYC.20140213.151118:eng/test-keys

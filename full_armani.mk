@@ -16,11 +16,11 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, device/nokia/normandy/device.mk)
+$(call inherit-product, device/lenovo/armani/device.mk)
 
 # Discard inherited values and use our own instead.
-PRODUCT_NAME := full_normandy
-PRODUCT_DEVICE := normandy
-PRODUCT_BRAND := NOKIA
-PRODUCT_MANUFACTURER := NOKIA
-PRODUCT_MODEL := normandy
+PRODUCT_NAME := full_armani
+PRODUCT_DEVICE := armani
+PRODUCT_BRAND := LENOVO
+PRODUCT_MANUFACTURER := qcom
+PRODUCT_MODEL := armani

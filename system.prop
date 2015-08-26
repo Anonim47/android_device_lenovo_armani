@@ -1,0 +1,14 @@
+com.qc.hardware=true \
+dev.pm.dyn_sample_period=700000 \
+dev.pm.dyn_samplingrate=1 \
+ro.vendor.extension_library=/system/lib/libqc-opt.so \
+rild.libargs=-d /dev/smd0
+persist.rild.nitz_plmn=
+persist.rild.nitz_long_ons_0=
+persist.rild.nitz_long_ons_1=
+persist.rild.nitz_long_ons_2=
+persist.rild.nitz_long_ons_3=
+persist.rild.nitz_short_ons_0=
+persist.rild.nitz_short_ons_1=
+persist.rild.nitz_short_ons_2=
+persist.rild.nitz_short_ons_3=

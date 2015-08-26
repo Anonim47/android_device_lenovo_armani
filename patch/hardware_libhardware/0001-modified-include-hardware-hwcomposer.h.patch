@@ -1,0 +1,36 @@
+From f4c4f87ea95bd4216ea817d87fb9e637f6ef3854 Mon Sep 17 00:00:00 2001
+From: Ahmed Hady <ahmedhady6@gmail.com>
+Date: Tue, 21 Jul 2015 00:41:44 +0200
+Subject: [PATCH] 	modified:   include/hardware/hwcomposer.h
+
+Change-Id: Ifbbfa2db981f0fd57cb6dfa1f71b02eb047746de
+---
+ include/hardware/hwcomposer.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/include/hardware/hwcomposer.h b/include/hardware/hwcomposer.h
+index e848d32..a4cd301 100644
+--- a/include/hardware/hwcomposer.h
++++ b/include/hardware/hwcomposer.h
+@@ -150,7 +150,6 @@ typedef struct hwc_layer_1 {
+      *   position of this layer using the setCursorPositionAsync() api.
+      */
+     int32_t compositionType;
+-
+     /*
+      * hints is bit mask set by the HWC implementation during (*prepare)().
+      * It is preserved between (*prepare)() calls, unless the
+@@ -178,6 +177,10 @@ typedef struct hwc_layer_1 {
+                  * for the second call then the HWComposer implementation may
+                  * assume that the contents of the buffer have not changed. */
+                 buffer_handle_t handle;
++#ifdef QCOM_HARDWARE
++            /* source transform of the buffer */
++            uint32_t sourceTransform;
++#endif
+ 
+                 /* When compositionType is HWC_SIDEBAND, this is the handle
+                  * of the sideband video stream to compose. */
+-- 
+1.9.1
+

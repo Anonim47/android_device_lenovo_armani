@@ -1,0 +1,45 @@
+From 30b92cdcc8ecf1fb424b01b2cb9f84db8c7ad8bb Mon Sep 17 00:00:00 2001
+From: Ahmed Hady <ahmedhady6@gmail.com>
+Date: Tue, 21 Jul 2015 00:39:18 +0200
+Subject: [PATCH] 	modified:  
+ include/hardware_legacy/AudioSystemLegacy.h 	modified:   wifi/wifi.c
+
+Change-Id: I18ec7b1725c290077544923b7bdbfcdc715543be
+---
+ include/hardware_legacy/AudioSystemLegacy.h | 6 ++++++
+ wifi/wifi.c                                 | 2 +-
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/include/hardware_legacy/AudioSystemLegacy.h b/include/hardware_legacy/AudioSystemLegacy.h
+index 257fed3..b5179ad 100644
+--- a/include/hardware_legacy/AudioSystemLegacy.h
++++ b/include/hardware_legacy/AudioSystemLegacy.h
+@@ -144,6 +144,12 @@ public:
+         HE_AAC_V1           = 0x05000000,
+         HE_AAC_V2           = 0x06000000,
+         VORBIS              = 0x07000000,
++#ifdef QCOM_HARDWARE
++        EVRC                = 0x08000000,
++        QCELP               = 0x09000000,
++        EVRCB               = 0x10000000,
++        EVRCWB              = 0x11000000,
++#endif
+         MAIN_FORMAT_MASK    = 0xFF000000,
+         SUB_FORMAT_MASK     = 0x00FFFFFF,
+         // Aliases
+diff --git a/wifi/wifi.c b/wifi/wifi.c
+index 5c5c360..c75eb11 100644
+--- a/wifi/wifi.c
++++ b/wifi/wifi.c
+@@ -132,7 +132,7 @@ static const char EXT_MODULE_PATH[] = WIFI_EXT_MODULE_PATH;
+ 
+ #define WIFI_DRIVER_LOADER_DELAY	1000000
+ 
+-static const char IFACE_DIR[]           = "/data/system/wpa_supplicant";
++static const char IFACE_DIR[]           = "";
+ #ifdef WIFI_DRIVER_MODULE_PATH
+ static const char DRIVER_MODULE_NAME[]  = WIFI_DRIVER_MODULE_NAME;
+ static const char DRIVER_MODULE_TAG[]   = WIFI_DRIVER_MODULE_NAME " ";
+-- 
+1.9.1
+

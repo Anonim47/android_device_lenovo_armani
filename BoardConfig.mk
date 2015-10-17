@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2015 The CyanogenMod Project
+# Copyright (C) 2015 The Xoplax OS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,33 +14,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# This file sets variables that control the way modules are built
-# thorughout the system. It should not be used to conditionally
-# disable makefiles (the proper mechanism to control what gets
-# included in a build is to use PRODUCT_PACKAGES in a product
-# definition file).
-#
-
-# inherit from the proprietary version
-
+# Define LOCAL_PATH
 LOCAL_PATH := device/lenovo/armani
 
 TARGET_SPECIFIC_HEADER_PATH := device/lenovo/armani/include
 
-# cflags
+# CFlags
 COMMON_GLOBAL_CFLAGS += -DQCOM_BSP_ABI_HACK -DUSE_MDP3
 COMMON_GLOBAL_CFLAGS += -DLPA_DEFAULT_BUFFER_SIZE=480
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a5 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 
+# Radio
 TARGET_NO_RADIOIMAGE := true
+
+# Bootloader
 TARGET_NO_BOOTLOADER := true
-# Define the Bootloader name
-TARGET_BOOTLOADER_BOARD_NAME := armani_row
-# Try to use ASHMEM if possible (when non-MDP composition is used)
-TARGET_GRALLOC_USES_ASHMEM := true
+TARGET_BOOTLOADER_BOARD_NAME := msm7x27a
 
 # Arch related defines and optimizations
 TARGET_ARCH := arm
@@ -53,35 +45,31 @@ TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_CORTEX_CACHE_LINE_32 := true
 ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
-
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
+# GPU
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno203
 BOARD_USES_ADRENO_200 := true
 
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/lenovo/armani
 TARGET_KERNEL_CONFIG := cyanogen_armani_defconfig
-
-TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-TARGET_USES_UNCOMPRESSED_KERNEL := false
-
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom loglevel=1 vmalloc=200M
 
-ARCH_ARM_HAVE_TLS_REGISTER := true
-BOARD_EGL_CFG := device/lenovo/armani/config/egl.cfg
+# Filesystem
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 
+# Partition
 BOARD_BOOTIMAGE_PARTITION_SIZE := 13901824
 BOARD_CACHEIMAGE_PARTITION_SIZE := 125829120
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 13901824
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 996147200
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 982515712
 BOARD_FLASH_BLOCK_SIZE := 131072
-TARGET_NO_RECOVERY := false
-BOARD_SUPPRESS_EMMC_WIPE := true
 TARGET_USERIMAGES_USE_EXT4 := true
 
+# MMC Device
 BOARD_CACHE_DEVICE := /dev/block/mmcblk0p18
 BOARD_CACHE_FILESYSTEM := ext4
 BOARD_CACHE_FILESYSTEM_OPTIONS := rw
@@ -91,6 +79,9 @@ BOARD_SYSTEM_FILESYSTEM_OPTIONS := rw
 BOARD_DATA_DEVICE := /dev/block/mmcblk0p21
 BOARD_DATA_FILESYSTEM := ext4
 BOARD_DATA_FILESYSTEM_OPTIONS := rw
+
+# eMMC bug workaround
+BOARD_SUPPRESS_EMMC_WIPE := true
 
 # FM
 BOARD_HAVE_QCOM_FM := true
@@ -109,12 +100,11 @@ TARGET_HAS_QACT := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lenovo/armani/bluetooth
 
-# Dalvik
+# Memory 
 TARGET_ARCH_LOWMEM := true
 
 # Hardware tunables framework
 BOARD_HARDWARE_CLASS := device/lenovo/armani/cmhw/
-
 
 # Display                                                                              
 USE_OPENGL_RENDERER := true
@@ -123,7 +113,11 @@ BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true                                   
 BOARD_USE_MHEAP_SCREENSHOT := true
 TARGET_DOESNT_USE_FENCE_SYNC := true
+TARGET_GRALLOC_USES_ASHMEM := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
+BOARD_EGL_CFG := device/lenovo/armani/config/egl.cfg
 
+# Qualcomm Hardware
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_USES_ION := true
 TARGET_USES_QCOM_BSP := true
@@ -131,9 +125,6 @@ COMMON_GLOBAL_CFLAGS += -DQCOM_FM_ENABLED
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 BOARD_USE_MHEAP_SCREENSHOT := true
 HWUI_COMPILE_FOR_PERF := true
-
-# Add QC Video Enhancements flag
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # SEPOLICY
 BOARD_SEPOLICY_DIRS := \
@@ -167,11 +158,14 @@ BOARD_USES_QCOM_GPS := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 
+# Bootanimation
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 
+# LibLight
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # Camera
@@ -179,6 +173,7 @@ COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB -DNEEDS_VECTORIMPL_SYMBOLS
 USE_DEVICE_SPECIFIC_CAMERA := true
 USE_CAMERA_STUB := true
 
+# HealthDaemon
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm7x27a
 
 # Webkit
@@ -188,16 +183,12 @@ TARGET_FORCE_CPU_UPLOAD := true
 # Dex
 ifeq ($(HOST_OS),linux)
   ifeq ($(TARGET_BUILD_VARIANT),userdebug)
-  	DISABLE_DEXPREOPT := true
-   else
         WITH_DEXPREOPT := true
   endif
 endif
 
 # RIL
 BOARD_RIL_CLASS := ../../../device/lenovo/armani/ril/
-
-DEVICE_RESOLUTION := 854x480
 
 # Wi-Fi
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
@@ -216,7 +207,7 @@ WIFI_EXT_MODULE_PATH := "/system/lib/modules/ath6kl/cfg80211.ko"
 WIFI_EXT_MODULE_NAME := "cfg80211"
 WIFI_DRIVER_FW_PATH_PARAM := "/data/misc/wifi/fwpath"
 
-# Recovery
+# TWRP
 TARGET_RECOVERY_INITRC := device/lenovo/armani/recovery/twrp-init.rc
 TW_INTERNAL_STORAGE_PATH := "/sdcard1"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard1"
@@ -247,4 +238,3 @@ BOARD_USE_CUSTOM_RECOVERY_FONT:= \"roboto_10x18.h\"
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_BRIGHTNESS_PATH := /sys/devices/platform/msm_fb.590337/leds/lcd-backlight/brightness
 TW_MAX_BRIGHTNESS := 255
-

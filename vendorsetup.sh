@@ -1,3 +1,4 @@
-add_lunch_combo cm_armani-userdebug
-add_lunch_combo cm_armani-eng
+#!/bin/bash
 sh device/lenovo/armani/patches/apply.sh
+sh device/lenovo/armani/manifest/apply.sh
+

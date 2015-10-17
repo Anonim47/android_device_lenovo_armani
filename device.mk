@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2015 The CyanogenMod Project
+# Copyright (C) 2015 The Xoplax OS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,7 +24,7 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 LOCAL_PATH := device/lenovo/armani
 
-DEVICE_PACKAGE_OVERLAYS := device/lenovo/armani/overlay
+DEVICE_PACKAGE_OVERLAYS := device/lenovo/armani/overlay/cm
 
 PRODUCT_LOCALES := en_US
 PRODUCT_LOCALES += hdpi

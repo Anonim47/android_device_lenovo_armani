@@ -1,6 +1,4 @@
 # system.prop for armani
-# by Anonim47
-
 # RIL
 rild.libpath=/system/lib/libril-qc-qmi-1.so
 persist.rild.nitz_plmn=

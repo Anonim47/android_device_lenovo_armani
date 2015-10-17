@@ -15,16 +15,17 @@
 # limitations under the License.
 #
 
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-LOCAL_PATH := device/lenovo/armani
+LOCAL_PATH := device/lenovo/armani_row
 
-DEVICE_PACKAGE_OVERLAYS := device/lenovo/armani/overlay/cm
+DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay/cm
 
 PRODUCT_LOCALES := en_US
 PRODUCT_LOCALES += hdpi
@@ -67,10 +68,10 @@ PRODUCT_COPY_FILES += \
 
 # Files needed for recovery image
 PRODUCT_COPY_FILES += \
-device/lenovo/armani/recovery/sbin/rmt_storage_recovery:/recovery/root/sbin/rmt_storage_recovery \
-device/lenovo/armani/recovery/sbin/rmt_oeminfo_recovery:/recovery/root/sbin/rmt_oeminfo_recovery \
-device/lenovo/armani/recovery/sbin/linker:/recovery/root/sbin/linker \
-device/lenovo/armani/recovery/sbin/charge.sh:/recovery/root/sbin/charge.sh
+    $(LOCAL_PATH)/recovery/sbin/rmt_storage_recovery:/recovery/root/sbin/rmt_storage_recovery \
+    $(LOCAL_PATH)/recovery/sbin/rmt_oeminfo_recovery:/recovery/root/sbin/rmt_oeminfo_recovery \
+    $(LOCAL_PATH)/recovery/sbin/linker:/recovery/root/sbin/linker \
+    $(LOCAL_PATH)/recovery/sbin/charge.sh:/recovery/root/sbin/charge.sh
 
 # INIT.D Files
 PRODUCT_COPY_FILES += \
@@ -96,9 +97,7 @@ PRODUCT_PACKAGES += \
 # Wifi
 PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
-    wpa_supplicant_overlay.conf
-
-PRODUCT_PACKAGES += \
+    wpa_supplicant_overlay.conf \
     libQWiFiSoftApCfg
 
 # Misc
@@ -122,7 +121,7 @@ PRODUCT_PACKAGES += \
     memtrack.msm7x27a \
     hwcomposer.msm7x27a
 
-# Wal
+# Wallpapers
 PRODUCT_PACKAGES += \
     librs_jni \
     LiveWallpapers \
@@ -164,9 +163,6 @@ PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     libnl_2 
 
-PRODUCT_PACKAGES += \
-    libQWiFiSoftApCfg
-
 # Color Convert
 PRODUCT_PACKAGES += \
     libI420colorconvert \
@@ -206,8 +202,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.msm7x27a
 
-# Enable Torch
-PRODUCT_PACKAGES += Torch
+# Torch
+PRODUCT_PACKAGES += \
+    Torch
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -236,7 +233,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/rootdir/rmt_storage_recovery:root/rmt_storage_recovery\
 	$(LOCAL_PATH)/rootdir/nv_set:root/nv_set \
 	$(LOCAL_PATH)/rootdir/init.usb.rc:root/init.usb.rc 
-
 
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -318,5 +314,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 $(call inherit-product, vendor/lenovo/armani_row/armani_row-vendor.mk)
 
-PRODUCT_MANUFACTURER := qcom
+PRODUCT_MANUFACTURER := LENOVO
 PRODUCT_BRAND := LENOVO

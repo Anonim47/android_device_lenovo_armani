@@ -15,9 +15,9 @@
 # limitations under the License.
 
 # Define LOCAL_PATH
-LOCAL_PATH := device/lenovo/armani
+LOCAL_PATH := device/lenovo/armani_row
 
-TARGET_SPECIFIC_HEADER_PATH := device/lenovo/armani/include
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # CFlags
 COMMON_GLOBAL_CFLAGS += -DQCOM_BSP_ABI_HACK -DUSE_MDP3
@@ -98,13 +98,13 @@ TARGET_HAS_QACT := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lenovo/armani/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
 # Memory 
 TARGET_ARCH_LOWMEM := true
 
 # Hardware tunables framework
-BOARD_HARDWARE_CLASS := device/lenovo/armani/cmhw/
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
 
 # Display                                                                              
 USE_OPENGL_RENDERER := true
@@ -115,7 +115,7 @@ BOARD_USE_MHEAP_SCREENSHOT := true
 TARGET_DOESNT_USE_FENCE_SYNC := true
 TARGET_GRALLOC_USES_ASHMEM := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
-BOARD_EGL_CFG := device/lenovo/armani/config/egl.cfg
+BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
 
 # Qualcomm Hardware
 BOARD_USES_QCOM_HARDWARE := true
@@ -128,7 +128,7 @@ HWUI_COMPILE_FOR_PERF := true
 
 # SEPOLICY
 BOARD_SEPOLICY_DIRS := \
-       device/lenovo/armani/sepolicy
+       $(LOCAL_PATH)/sepolicy
 
 BOARD_SEPOLICY_UNION := \
        device.te \
@@ -137,7 +137,7 @@ BOARD_SEPOLICY_UNION := \
 
 # EGL
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
-BOARD_EGL_CFG := device/lenovo/armani/config/egl.cfg
+BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
 
 # Media
 TARGET_QCOM_MEDIA_VARIANT := caf
@@ -188,7 +188,7 @@ ifeq ($(HOST_OS),linux)
 endif
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/lenovo/armani/ril/
+BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/
 
 # Wi-Fi
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
@@ -208,7 +208,7 @@ WIFI_EXT_MODULE_NAME := "cfg80211"
 WIFI_DRIVER_FW_PATH_PARAM := "/data/misc/wifi/fwpath"
 
 # TWRP
-TARGET_RECOVERY_INITRC := device/lenovo/armani/recovery/twrp-init.rc
+TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/recovery/twrp-init.rc
 TW_INTERNAL_STORAGE_PATH := "/sdcard1"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard1"
 TW_EXTERNAL_STORAGE_PATH := "/sdcard"
@@ -219,7 +219,7 @@ TW_USE_TOOLBOX := true
 TW_TARGET_USES_QCOM_BSP := true
 TW_DEFAULT_EXTERNAL_STORAGE := true
 TW_FLASH_FROM_STORAGE := true
-TARGET_RECOVERY_FSTAB := device/lenovo/armani/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.qcom
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_MISC_PARTITION := true
@@ -232,7 +232,7 @@ SP1_MOUNTABLE := 1
 SP2_NAME := "internal_sd"
 SP2_BACKUP_METHOD := files
 SP2_MOUNTABLE := 1
-TW_BOARD_CUSTOM_GRAPHICS := ../../../device/lenovo/armani/recovery/twrp-graphics.c
+TW_BOARD_CUSTOM_GRAPHICS := ../../../$(LOCAL_PATH)/recovery/twrp-graphics.c
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
 BOARD_USE_CUSTOM_RECOVERY_FONT:= \"roboto_10x18.h\"
 RECOVERY_GRAPHICS_USE_LINELENGTH := true

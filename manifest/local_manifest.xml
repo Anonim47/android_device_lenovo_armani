@@ -4,7 +4,7 @@
     <project path="hardware/atheros/wlan" name="c8813q-dev/android_hardware_atheros_wlan" revision="cm-11.0" remote="github" />
     <project path="hardware/qcom/display-legacy" name="c8813q-dev/android_hardware_qcom_display-legacy" revision="cm-11.0" remote="github" />
     <project path="hardware/qcom/media-legacy" name="c8813q-dev/android_hardware_qcom_media-legacy" revision="cm-11.0" remote="github" />
-    <project path="device/lenovo/armani" name="Anonim47/android_device_lenovo_armani" revision="cm-11.0" remote="github" />
+    <project path="device/lenovo/armani_row" name="Anonim47/android_device_lenovo_armani_row" revision="cm-11.0" remote="github" />
     <project path="device/qcom/common" name="CyanogenMod/android_device_qcom_common" revision="cm-11.0" remote="github"/>
     <project path="kernel/lenovo/armani" name="JAV-Team-qcom/android_kernel_lenovo_msm8x25q" revision="cm-11.0" remote="github" />
     <project path="vendor/lenovo" name="Anonim47/android_vendor_lenovo" revision="kitkat" remote="github" />

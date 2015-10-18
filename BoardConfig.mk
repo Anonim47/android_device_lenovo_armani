@@ -180,13 +180,6 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm7x27a
 PRODUCT_PREBUILT_WEBVIEWCHROMIUM := yes
 TARGET_FORCE_CPU_UPLOAD := true
 
-# Dex
-ifeq ($(HOST_OS),linux)
-  ifeq ($(TARGET_BUILD_VARIANT),userdebug)
-        WITH_DEXPREOPT := true
-  endif
-endif
-
 # RIL
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/
 
